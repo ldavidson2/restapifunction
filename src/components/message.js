@@ -26,7 +26,7 @@ export default function Message() {
   }, []);
   return (
     <div>
-      <h1>Results:</h1>
+      <h1>Results :</h1>
       {result}
     </div>
   );
