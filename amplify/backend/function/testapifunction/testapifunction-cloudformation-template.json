@@ -15,26 +15,6 @@
     },
     "s3Key": {
       "Type": "String"
-    },
-    "storageresttestName": {
-      "Type": "String",
-      "Default": "storageresttestName"
-    },
-    "storageresttestArn": {
-      "Type": "String",
-      "Default": "storageresttestArn"
-    },
-    "storageresttestStreamArn": {
-      "Type": "String",
-      "Default": "storageresttestStreamArn"
-    },
-    "apitestapiApiName": {
-      "Type": "String",
-      "Default": "apitestapiApiName"
-    },
-    "apitestapiApiId": {
-      "Type": "String",
-      "Default": "apitestapiApiId"
     }
   },
   "Conditions": {
@@ -89,21 +69,6 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
-            },
-            "STORAGE_RESTTEST_NAME": {
-              "Ref": "storageresttestName"
-            },
-            "STORAGE_RESTTEST_ARN": {
-              "Ref": "storageresttestArn"
-            },
-            "STORAGE_RESTTEST_STREAMARN": {
-              "Ref": "storageresttestStreamArn"
-            },
-            "API_TESTAPI_APINAME": {
-              "Ref": "apitestapiApiName"
-            },
-            "API_TESTAPI_APIID": {
-              "Ref": "apitestapiApiId"
             }
           }
         },
@@ -195,78 +160,6 @@
                   }
                 ]
               }
-            }
-          ]
-        }
-      }
-    },
-    "AmplifyResourcesPolicy": {
-      "DependsOn": [
-        "LambdaExecutionRole"
-      ],
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyName": "amplify-lambda-execution-policy",
-        "Roles": [
-          {
-            "Ref": "LambdaExecutionRole"
-          }
-        ],
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "dynamodb:Get*",
-                "dynamodb:BatchGetItem",
-                "dynamodb:List*",
-                "dynamodb:Describe*",
-                "dynamodb:Scan",
-                "dynamodb:Query"
-              ],
-              "Resource": [
-                {
-                  "Ref": "storageresttestArn"
-                },
-                {
-                  "Fn::Join": [
-                    "/",
-                    [
-                      {
-                        "Ref": "storageresttestArn"
-                      },
-                      "index/*"
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "Effect": "Allow",
-              "Action": [
-                "apigateway:GET",
-                "apigateway:HEAD",
-                "apigateway:OPTIONS"
-              ],
-              "Resource": [
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      "::/restapis/",
-                      {
-                        "Ref": "apitestapiApiName"
-                      },
-                      "/*"
-                    ]
-                  ]
-                }
-              ]
             }
           ]
         }
