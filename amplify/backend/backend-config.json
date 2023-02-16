@@ -1,0 +1,8 @@
+{
+  "storage": {
+    "resttest": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}
