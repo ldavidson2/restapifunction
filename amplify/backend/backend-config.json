@@ -1,4 +1,45 @@
 {
+  "api": {
+    "testapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "testapifunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "testapifunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_testapifunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testapifunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_testapifunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testapifunction"
+        }
+      ]
+    }
+  },
   "storage": {
     "resttest": {
       "providerPlugin": "awscloudformation",

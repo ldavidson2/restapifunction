@@ -14,6 +14,15 @@
     "categories": {
       "storage": {
         "resttest": {}
+      },
+      "function": {
+        "testapifunction": {
+          "deploymentBucketName": "amplify-amplify9a94d46101c54-staging-12156-deployment",
+          "s3Key": "amplify-builds/testapifunction-69796d7a565977747159-build.zip"
+        }
+      },
+      "api": {
+        "testapi": {}
       }
     }
   }
