@@ -14,7 +14,7 @@ def handler(event, context):
         }
     )
 
-    data = str(response['Item']['companyName'])
+    data = str(response)
   print('received event:')
   print(event)
   
